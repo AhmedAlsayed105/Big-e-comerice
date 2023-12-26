@@ -1,6 +1,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton,Badge } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -9,6 +9,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function LinksSmallScreen() {
   const [state, setState] = useState({
@@ -30,15 +31,17 @@ export default function LinksSmallScreen() {
 
 
   return (
-    <>
-    {/* { useMediaQuery('(min-width:901px)') && (
-            <>
-            
-            </>
-          )
-        } */}
+    <div>
+      {/* Start Card On small screen */}
+       <IconButton aria-label="cart">
+                <Badge badgeContent={4} color="primary">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+      {/* Start Card On small screen */}
 
         {/* Start NavBar Small screen */}
+
         { useMediaQuery('(max-width:900px)') && (
             <>
       <IconButton aria-label="cart" onClick={toggleDrawer("top", true)}>
@@ -103,7 +106,8 @@ export default function LinksSmallScreen() {
           </>
           )
         }
+
         {/* End NavBar Small screen */}
-    </>
+    </div>
   );
 }
