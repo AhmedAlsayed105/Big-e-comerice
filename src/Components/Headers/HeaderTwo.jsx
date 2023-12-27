@@ -6,15 +6,13 @@ import LinksSmallScreen from "./LinksSmallScreen";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchPage from './SearchPage'
 import { NavLink } from "react-router-dom";
-import Home from "../../Pages/Home";
-import About from "../../Pages/About";
 export default function HeaderTwo() {
   return (
     <nav className="my-5 ">
       <Container>
-      <Stack sx={{background:"red" , padding:"10px"}} direction={"row"} justifyContent={"space-between"}  alignItems={"center"}>
+      <Stack sx={{ padding:"10px"}} direction={"row"} justifyContent={"space-between"}  alignItems={"center"}>
 {/* start Div green */}
-          <div className="flex gap-10 items-center bg-green-500">
+          <div className="flex gap-10 items-center">
             {/* <Box className="flex-1"> */}
               <img src={Logo} alt="logo" />
             {/* </Box> */}
@@ -38,11 +36,11 @@ export default function HeaderTwo() {
           {
         useMediaQuery("(min-width:901px)") && (
           <ul className=" flex gap-[10px] cursor-pointer" >
-          {/* <NavLink to={<Home/>}>Home</NavLink> */}
-          {/* <NavLink to={<About/>}>About</NavLink> */}
-          <NavLink>Shop</NavLink>
-          <NavLink>Blog</NavLink>
-          <NavLink>Contact</NavLink>
+          <NavLink to={"/"}>Home</NavLink>
+          <NavLink to={"about"}>About</NavLink>
+          <NavLink to={"shop"}>Shop</NavLink>
+          <NavLink to={"blog"}>Blog</NavLink>
+          <NavLink to={"contact"}>Contact</NavLink>
           </ul>
           )
           }

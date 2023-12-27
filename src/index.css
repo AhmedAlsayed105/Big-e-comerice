@@ -12,3 +12,14 @@
 .border-test{
     border:solid 4px red ;
 }
+ul a:hover {
+    color:black;
+    font-weight:700;
+    padding:0 7px;
+    transition:0.3s
+}
+
+ul a.active {
+    color:black;
+    font-weight:700;
+}
