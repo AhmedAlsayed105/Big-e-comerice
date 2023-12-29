@@ -109,7 +109,7 @@ export default function SearchPage() {
       }}
     >
       <Box sx={{ flexGrow: 1 ,alignItems:"center"}}>
-      <AppBar sx={{background:"#fdfdfd",color:"black", height:"50px"}} position="">
+      <AppBar sx={{background:"#fdfdfd",color:"black", height:"50px"}} position="static">
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

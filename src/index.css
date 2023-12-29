@@ -8,6 +8,9 @@
     padding:0;
     box-sizing:border-box;
 }
+body{
+    height:1000vh;
+}
 
 .border-test{
     border:solid 4px red ;
