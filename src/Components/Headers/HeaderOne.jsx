@@ -1,11 +1,11 @@
-import  {Box,Container ,Typography }  from "@mui/material";
+import  {Box,Typography }  from "@mui/material";
 import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 export default function HeaderOne() {
   return (
-    <nav className=" text-white  bg-[#000000] rounded-b-md">
-    <Container>
-    <div  className="py-2 flex flex-col sm:flex-row justify-between items-center">
+    <nav className="  text-white  bg-[#000000] rounded-b-md">
+    {/* <Container> */}
+    <div  className=" container mx-auto   py-2 flex flex-col sm:flex-row justify-between items-center">
         <Box className="">
     <Typography variant="p" component="p">
         Worlds Fastest Online Shopping Destination
@@ -27,7 +27,7 @@ export default function HeaderOne() {
     </Box>
         </Box>
     </div>
-    </Container>
+    {/* </Container> */}
 </nav>
   )
 }

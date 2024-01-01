@@ -1,7 +1,7 @@
-// import div from '@mui/material/div',
-import { Box, Container, Typography } from '@mui/material';
-import IphoneImage from "../../Image/Iphon.png"
-import { Translate } from '@mui/icons-material';
+/* eslint-disable react/prop-types */
+
+
+import { Box, Typography } from '@mui/material';
 // const Item = styled(Paper)(({ theme }) => ({
 //     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'red',
 //     ...theme.typography.body2,
@@ -12,47 +12,48 @@ import { Translate } from '@mui/icons-material';
 
 
 
-export default function FirstComponentsHome() {
+export default function FirstComponentsHome({ Imag,bgColorElement, positionImg ,positionP, Direction,bgButton,textH2,textP}) {
     return (
-        <Container>
-                <Box className=' border-test relative pt-6 px-10 bg-black text-white h-[450px] sm:h-[570px] max-w-[850px] rounded-3xl shadow-2xl '
-                
-            sx={{
-                position: 'relative',
-                '&:hover ::before': {
-                  content: '""',
-                  position: 'absolute',
-                  bottom: "-30px",
-                  left: "50%",
-                  transform:"translate(-50%)",
-                  width: "70%",
-                  height: "30%",
-                  opacity:"0.1",
-                  borderRadius: "30px",
-                  backgroundColor: '#080d13',
-                filter: "blur(35px)",
-                transitionDuration: "3ms",
-                zIndex:"-10"
-                
-            }
-        }}
-                >
-            <Box className=''>
-                    <div className="my-[40px]">
-                        <Typography className='mb-3 text-2xl' variant='p' component="p">Blast Past Fast.</Typography>
-                        <Typography sx={{fontWeight:800}} variant='h4'>IPhone 12 Pro It’sA Leap<br /> Year.</Typography>
+        // <Container>
+            <Box className={`px-10  text-white h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
 
-                        <button className='relative z-[1] text-white font-medium w-[180px] h-[40px] mt-4 rounded-3xl   bg-gradient-to-r from-cyan-500 to-blue-500  ' size="large">shop By Category</button>
+               justify-evenly `}   
+                sx={{
+                    position: 'relative',
+                    background:`${bgColorElement}`,
+                    '&:hover ::before': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: "-30px",
+                        left: "50%",
+                        transform: "translate(-50%)",
+                        width: "70%",
+                        height: "30%",
+                        opacity: "0.3",
+                        borderRadius: "30px",
+                        backgroundColor: `${bgColorElement}`,
+                        filter: "blur(40px)",
+                        transitionDuration: "3ms",
+                        zIndex: "-10"
+                    }
+                }}
+            >
+
+                    <div className={positionP}>
+                        <Typography className='mb-3 text-2xl' variant='p' component="p">{textP}</Typography>
+                        <p  className='text-[25px] font-extrabold sm:text-[30px] '  >{textH2}<br /></p>
+
+                        <button className={` hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `}  size="large">shop By Category</button>
 
                     </div>
-                    <div className='absolute bottom-0 z-[0] '>
 
-                        <img className='min-w-[200px]' src={IphoneImage} />
+                    <div className={`flex justify-center relative ${positionImg} `}>
+
+                        <img className=' ' src={Imag} />
 
                     </div>
                 </Box>
-            </Box>
+            )
 
-        </Container>
-    )
+        // </Container>
 }

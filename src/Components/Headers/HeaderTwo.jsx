@@ -1,5 +1,5 @@
 import Logo from "../../Image/Logo.png";
-import { Box, Container, IconButton, Badge, Stack } from "@mui/material";
+import { Box, IconButton, Badge, Stack } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import LinksSmallScreen from "./LinksSmallScreen";
@@ -8,8 +8,8 @@ import SearchPage from './SearchPage'
 import { NavLink } from "react-router-dom";
 export default function HeaderTwo() {
   return (
-    <nav className="my-5 ">
-      <Container>
+    <nav className="my-5 container mx-auto ">
+      {/* <Container> */}
       <Stack sx={{ padding:"10px"}} direction={"row"} justifyContent={"space-between"}  alignItems={"center"}>
 {/* start Div green */}
           <div className="flex gap-10 items-center">
@@ -87,7 +87,7 @@ export default function HeaderTwo() {
             {/* End Page Links smallScreen */}
         
         </Stack>
-      </Container>
+      {/* </Container> */}
     </nav>
   );
 }
