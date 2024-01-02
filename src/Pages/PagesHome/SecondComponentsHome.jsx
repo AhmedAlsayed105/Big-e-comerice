@@ -7,9 +7,7 @@ import { Box, Typography } from '@mui/material';
 export default function SecondComponentsHome({ Imag,bgColorElement, positionImg ,positionP, Direction,bgButton,textH2,textP}) {
     return (
         // <Container>
-            <Box className={`p-10  text-white    gap-5  rounded-3xl shadow-2xl flex  ${Direction}
-
-                `}   
+            <Box className={`p-3  text-white h-[370px] sm:h-[250px] lg:h-[330px]    gap-5  rounded-3xl shadow-2xl flex items-center ${Direction}  `}   
                 sx={{
                     position: 'relative',
                     background:`${bgColorElement}`,
@@ -30,24 +28,25 @@ export default function SecondComponentsHome({ Imag,bgColorElement, positionImg 
                     }
                 }}
             >
-<div className='flex flex-row  items-center'>
+<div className=''>
     
                         <div className={positionP}>
-                            <Typography className='mb-3 text-2xl' variant='p' component="p">{textP}</Typography>
-                            <p  className='text-[25px] font-extrabold sm:text-[30px] '  >{textH2}<br /></p>
+                            <Typography className=' text-2xl' variant='p' component="p">{textP}</Typography>
+                            <p  className='text-[30px] font-extrabold lg:text-[25px] '  >{textH2}<br /></p>
     
                             <button className={` hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `}  size="large">shop By Category</button>
     
                         </div>
     
-                        <div className={`flex justify-center relative  ${positionImg} max-w-[300px]`}>
-    
+                        
+</div>
+                        <div className={`flex justify-center right-[-0px] bottom-[-25px] absolute  ${positionImg}  w-[300px] max-w-[350px]`}>
+                                                                {/* md: lg: right -48px */}
                             <img  className={' '} src={Imag} />
     
                         </div>
-                        
-</div>
                 </Box>
+                        
             )
 
         // </Container>

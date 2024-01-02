@@ -12,10 +12,10 @@ import { Box, Typography } from '@mui/material';
 
 
 
-export default function FirstComponentsHome({ Imag,bgColorElement, positionImg ,positionP, Direction,bgButton,textH2,textP}) {
+export default function FirstComponentsHome({ Imag,bgColorElement, positionImg ,positionP, Direction,bgButton,textH2,textP,HightComp}) {
     return (
         // <Container>
-            <Box className={`px-10  text-white h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
+            <Box className={`px-10  text-white ${HightComp}  h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
 
                justify-evenly `}   
                 sx={{
