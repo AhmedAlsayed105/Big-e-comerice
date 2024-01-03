@@ -12,12 +12,12 @@ import { Box, Typography } from '@mui/material';
 
 
 
-export default function FirstComponentsHome({ Imag,bgColorElement, positionImg ,positionP, Direction,bgButton,textH2,textP,HightComp}) {
+export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,positionP, Direction,bgButton,textH2,textP,HightComp}) {
     return (
         // <Container>
             <Box className={`px-10  text-white ${HightComp}  h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
 
-               justify-evenly `}   
+               justify-between `}   
                 sx={{
                     position: 'relative',
                     background:`${bgColorElement}`,
@@ -39,7 +39,7 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg ,
                 }}
             >
 
-                    <div className={positionP}>
+                    <div className={`${positionP} relative z-10`} >
                         <Typography className='mb-3 text-2xl' variant='p' component="p">{textP}</Typography>
                         <p  className='text-[25px] font-extrabold sm:text-[30px] '  >{textH2}<br /></p>
 
