@@ -1,23 +1,27 @@
 /* eslint-disable react/prop-types */
 
 
-import { Box, Typography } from '@mui/material';
-// const Item = styled(Paper)(({ theme }) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'red',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-//   })),
+import { Box,Container,Typography } from '@mui/material';
 
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,positionP, Direction,bgButton,textH2,textP,HightComp}) {
+    
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+    
     return (
-        // <Container>
-            <Box className={`px-10  text-white ${HightComp}  h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
+        <div className=''>
+        
+            <Box className={` px-10  text-white ${HightComp}  h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
 
-               justify-between `}   
+               justify-between `
+            }   
                 sx={{
                     position: 'relative',
                     background:`${bgColorElement}`,
@@ -37,7 +41,10 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
                         zIndex: "-10"
                     }
                 }}
+                data-aos="fade-right"
+                
             >
+
 
                     <div className={`${positionP} relative z-10`} >
                         <Typography className='mb-3 text-2xl' variant='p' component="p">{textP}</Typography>
@@ -47,13 +54,20 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
 
                     </div>
 
-                    <div className={`flex justify-center relative ${positionImg} `}>
+                    <div className={`flex justify-center relative ${positionImg} `}  >
 
-                        <img className=' ' src={Imag} />
+                        <img data-aos="fade-right" style={{
+                            "data-aos" : {overflow:"auto"}
+                        }}
+                         src={Imag} />
 
                     </div>
+                    
                 </Box>
+             </div>
             )
 
-        // </Container>
 }
+// [data-aos] {
+//     overflow:"auto"
+//   }

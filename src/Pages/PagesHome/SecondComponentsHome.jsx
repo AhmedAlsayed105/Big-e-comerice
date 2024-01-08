@@ -2,16 +2,24 @@
 
 import { Box, Typography, useMediaQuery } from '@mui/material';
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // eslint-disable-next-line react/prop-types
-export default function SecondComponentsHome({ Imag, bgColorElement, positionImg, positionP, Direction, bgButton, textH2, textP }) {
+export default function SecondComponentsHome({ Image, bgColorElement,positionP, bgButton, textH2, textP }) {
     const media = useMediaQuery('(min-width:900px) and (max-width:1000px)');
-
-
+    // data-aos="fade-right"
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+    
     // console.log(media);
     return (
         // <Container>
-        <Box className={`p-3  text-white h-[370px] sm:h-[250px] lg:h-[330px]    gap-5  rounded-3xl shadow-2xl flex items-center ${Direction}  `}
+        <Box className={`p-3  text-white h-[370px] sm:h-[250px] lg:h-[330px]    gap-5  rounded-3xl shadow-2xl flex items-center   `}
             sx={{
                 position: 'relative',
                 background: `${bgColorElement}`,
@@ -31,6 +39,7 @@ export default function SecondComponentsHome({ Imag, bgColorElement, positionImg
                     zIndex: "-10"
                 }
             }}
+            data-aos="fade-right"
         >
             <div className=''>
 
@@ -44,9 +53,9 @@ export default function SecondComponentsHome({ Imag, bgColorElement, positionImg
 
 
             </div>
-            <div className={`flex justify-center absolute ${positionImg} right-[-0px] bottom-[-25px]  w-[300px]          ${media ? "w-[200px] right-[-55px]" : ""} lg:right-[-55px] max-w-[350px] `}           >
+            <div data-aos="fade-right" className={`flex justify-center absolute  right-[-0px] bottom-[-25px]  w-[300px]          ${media ? "w-[200px] right-[-55px]" : ""} lg:right-[-55px] max-w-[350px] `}           >
 
-                <img className={' '} src={Imag} />
+                <img className={' '} src={Image} />
 
             </div>
         </Box>
