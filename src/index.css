@@ -27,7 +27,3 @@ ul a.active {
     color:black;
     font-weight:700;
 }
-[data-aos] {
-    /* قم بتخصيص الأوفرلاي هنا */
-    overflow: hidden;
-  }

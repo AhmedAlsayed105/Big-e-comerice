@@ -22,6 +22,9 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
 
                justify-between `
             }   
+            style={{
+                overflow: "inherit", // إضافة خاصية overflow
+            }}
                 sx={{
                     position: 'relative',
                     background:`${bgColorElement}`,

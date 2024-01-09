@@ -1,13 +1,20 @@
 import  {Box,Typography }  from "@mui/material";
 import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function HeaderOne() {
-
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+    
    
   return (
-    <nav className="  text-white  bg-[#000000] rounded-b-md">
+    <nav data-aos="fade-right" className="  text-white  bg-[#000000] rounded-b-md">
     {/* <Container> */}
     <div  className=" container mx-auto   py-2 flex flex-col sm:flex-row justify-between items-center">
         <Box className="">

@@ -35,7 +35,7 @@ export default function HeaderTwo() {
             {/*  start Link Big screen part 901px  */}
           {
         useMediaQuery("(min-width:901px)") && (
-          <ul className=" flex gap-[10px] cursor-pointer" >
+          <ul className=" flex gap-[10px] cursor-pointer relative z-10" >
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to={"about"}>About</NavLink>
           <NavLink to={"shop"}>Shop</NavLink>

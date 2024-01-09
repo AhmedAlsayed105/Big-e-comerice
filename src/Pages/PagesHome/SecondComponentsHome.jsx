@@ -40,6 +40,9 @@ export default function SecondComponentsHome({ Image, bgColorElement,positionP, 
                 }
             }}
             data-aos="fade-right"
+            style={{
+                overflow: "inherit", // إضافة خاصية overflow
+            }}
         >
             <div className=''>
 
