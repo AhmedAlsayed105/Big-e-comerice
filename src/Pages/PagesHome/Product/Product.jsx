@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import test from "../../../Image/productOne.jpg";
 import { useState } from "react";
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import ShopIngCard from "../../../ShopCard/ShopIngCard";
 export default function Product({Imag,bgColorElement,positionImg,positionP,Direction,bgButton,textH2,textP,HightComp,}) {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -28,7 +30,23 @@ export default function Product({Imag,bgColorElement,positionImg,positionP,Direc
       <div
         className={`flex justify-center items-center relative border-test   ${positionImg} `}
       > 
-      
+      {isHovered &&  
+      <Stack  className=" z-40 absolute right-0  top-12"    
+
+      style={{
+        overflow: "hidden", // إضافة خاصية overflow
+        }} 
+        >
+        <IconButton  color="error">
+          <FavoriteBorderIcon />
+        </IconButton>
+        <IconButton >
+          <VisibilityOutlinedIcon />
+        </IconButton>
+        
+      </Stack>
+      }
+
         <img data-aos="fade-right" src={test} />
       </div>
 
@@ -55,25 +73,27 @@ export default function Product({Imag,bgColorElement,positionImg,positionP,Direc
 
         {/*  */}
        
-       
+       <div data-aos="fade-up">
         {isHovered && (
-        <Stack
-        flexDirection={"row"}
-        justifyContent={"space-around"}
-        alignItems={"center"}
-        className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4  "
-        data-aos="fade-down"
-        // data-aos-delay="200" // تأخير الأنميشن للخلفية
-        // data-aos-duration="500" // مدة الأنميشن
-      >
+          <Stack
+          flexDirection={"row"}
+          justifyContent={"space-around"}
+          alignItems={"center"}
+          className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4  "
+          data-aos="fade-top"
+          // data-aos-delay="200" // تأخير الأنميشن للخلفية
+          // data-aos-duration="500" // مدة الأنميشن
+          >
             <button size="large">shop By Category</button>
             <span>ss</span>
           </Stack>
     )}
+    </div>
 
         </div>
         {/*  */}
 
+        <ShopIngCard/>
     </Box>
   );
   

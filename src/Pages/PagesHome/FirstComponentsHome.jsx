@@ -16,11 +16,11 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
       }, []);
     
     return (
-        <div className=''>
+        // <Container>
         
-            <Box className={` px-10  text-white ${HightComp}  h-[450px] sm:h-[570px]  rounded-3xl shadow-2xl flex  ${Direction}
+            <Box className={` px-10   text-white   ${HightComp}  rounded-3xl shadow-2xl flex  
 
-               justify-between `
+               justify-between    ${Direction}`
             }   
             style={{
                 overflow: "inherit", // إضافة خاصية overflow
@@ -50,14 +50,14 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
 
 
                     <div className={`${positionP} relative z-10`} >
-                        <Typography className='mb-3 text-2xl' variant='p' component="p">{textP}</Typography>
+                        <Typography className='mb-3 text-[16px]' variant='p' component="p">{textP}</Typography>
                         <p  className='text-[25px] font-extrabold sm:text-[30px] '  >{textH2}<br /></p>
 
                         <button className={` hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `}  size="large">shop By Category</button>
 
                     </div>
 
-                    <div className={`flex justify-center relative ${positionImg} `}  >
+                    <div className={`flex justify-center  ${positionImg}    `}  >
 
                         <img data-aos="fade-right" style={{
                             "data-aos" : {overflow:"auto"}
@@ -67,8 +67,8 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
                     </div>
                     
                 </Box>
-             </div>
             )
+             {/* </Container> */}
 
 }
 // [data-aos] {
