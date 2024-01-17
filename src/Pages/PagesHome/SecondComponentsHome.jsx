@@ -7,7 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // eslint-disable-next-line react/prop-types
-export default function SecondComponentsHome({ Image, bgColorElement,positionP, bgButton, textH2, textP }) {
+export default function SecondComponentsHome({ Image, bgColorElement,positionP, bgButton, textH2, textP ,textColor }) {
     const media = useMediaQuery('(min-width:900px) and (max-width:1000px)');
     // data-aos="fade-right"
     useEffect(() => {
@@ -47,8 +47,8 @@ export default function SecondComponentsHome({ Image, bgColorElement,positionP, 
             <div className=''>
 
                 <div className={positionP}>
-                    <Typography className=' text-2xl' variant='p' component="p">{textP}</Typography>
-                    <p className='text-[30px] font-extrabold lg:text-[25px] '  >{textH2}<br /></p>
+                    <Typography className={` text-2xl ${textColor}`} variant='p' component="p">{textP}</Typography>
+                    <p className={`text-[30px] font-bold lg:text-[30px] ${textColor}`}  >{textH2}<br /></p>
 
                     <button className={`relative z-10 hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `} size="large">shop By Category</button>
 

@@ -1,22 +1,31 @@
 import FirstComponentsHome from "./FirstComponentsHome";
+// Start Imag
 import IphoneImage from "../../Image/Iphon.png";
 import HeadPhon from "../../Image/headPhone.png";
 import Laptop from "../../Image/laptop.png";
 import Laptop2 from "../../Image/lalptop-2.png";
 import Mask from "../../Image/Mask.png";
 import Dorn from "../../Image/dron.png";
-import watch from "../../Image/watch.png";
+import Watch from "../../Image/watch.png";
 import Camera from "../../Image/Camer.png";
 import PlaySetion from "../../Image/playsetion.png";
-import handfry from "../../Image/handfry.png";
+import Handfry from "../../Image/handfry.png";
+import One from "../../Image/one.jpg";
+import Two from "../../Image/two.jpg";
+import Three from "../../Image/three.jpg";
+import Four from "../../Image/four.jpg";
+// End Imag
 import { Grid } from "@mui/material";
 import SecondComponentsHome from "./SecondComponentsHome";
 import Product from "./Product/Product";
+import LatestPosts from "./LatestPosts";
+import SectionEightIcon from "./SectionEightIcon";
+import ContentMe from "./ContentMe";
 
 export default function Home() {
   return (
     <>
-      <div className="    mx-auto px-1 ">
+      <div className="  mx-4  px-1 ">
         {/* Start section One  */}
         <Grid container rowSpacing={8} columnSpacing={2}>
           <Grid item xs={12} md={4}>
@@ -85,6 +94,7 @@ export default function Home() {
                   bgColorElement={"#DFDFDF"}
                   positionP={"mt-3"}
                   bgButton={"bg-black "}
+                  textColor={"text-black"}
                   textP={"Quadcopter"}
                   textH2={
                     <>
@@ -96,7 +106,7 @@ export default function Home() {
                 />
 
                 <SecondComponentsHome
-                  Image={watch}
+                  Image={Watch}
                   bgColorElement={"#CF364C"}
                   positionP={"mt-3"}
                   bgButton={"bg-black "}
@@ -115,7 +125,7 @@ export default function Home() {
             <Grid item xs={12} md={4}>
               <FirstComponentsHome
                 HightComp={" h-[500px] sm:h-[700px]"}
-                Imag={handfry}
+                Imag={Handfry}
                 Direction={"flex-col"}
                 bgColorElement={"black"}
                 positionImg={"relative bottom-[0px]"}
@@ -203,8 +213,6 @@ export default function Home() {
         
         </Grid>
         {/* End section Five Product */}
-
-
         {/* start section Six  */}
         <Grid  container   spacing={2} >
               <Grid  item margin={"auto"} xs={10} lg={5} >
@@ -213,7 +221,7 @@ export default function Home() {
               Imag={Camera}
               Direction={"flex-col-reverse"}
               bgColorElement={"#000000"}
-              positionImg={"relative left-[40px]  sm-bottom-[-70px] md:bottom-[-300px]"}
+              positionImg={"absolute right-[0] bottom-[200px]  sm:bottom-[300px] md:bottom-[50px]"}
               positionP={"mt-[-40px] lg:mt-40 mb-[40px]"}
                 bgButton={"bg-[#505A8A] "}
               textH2={<span className="text-[34px] sm:text-[40px]">
@@ -225,11 +233,13 @@ export default function Home() {
             />
           </Grid>
           <Grid  item margin={"auto"} xs={10} lg={5} >
-            <FirstComponentsHome
-              HightComp={" h-[475px] sm:h-[570px]"}
+              <FirstComponentsHome
+              HightComp={" h-[520px] sm:h-[700px] md:h-[400px] "} //sm:h-[570px]
+
               Imag={PlaySetion}
               Direction={"flex-col"}
-              positionImg={"relative bottom-[45px]  sm:bottom-[0px]"}
+              positionImg={"  absolute bottom-[45px]  sm:bottom-[-40px] right-0"}
+              // positionImg={"relative left-[40px]  sm-bottom-[-70px] md:bottom-[-300px]"}
               positionP={"mt-16"}
               bgColorElement={" #0c19b7 "}
               bgButton={"bg-[#F8CB06] "}
@@ -241,13 +251,67 @@ export default function Home() {
                 textP={"game Accessories."}
             />
           </Grid>
-            </Grid>
-
-
-
+        </Grid>
         {/* End section Six  */}
+        {/* Start section Seven Latest Posts  */}
+        <div className=" flex flex-col justify-center items-center my-24">
+              <h2 className=" sm:text-[45px] font-bold">Latest Posts</h2>
+        </div>
+        <Grid   container spacing={2} >
+        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
+          <LatestPosts 
+          textH2={" April 24, 2024"}
+          textP={"GameStop to Offer Up to $1 Billion in"}
+          bgColorElement={One}/>
+        </Grid>
+        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
+          <LatestPosts
+          textH2={" April 24, 2024"}
+          textP={"SPAC Called 5G Edge Wants to Go Public"}
+           bgColorElement={Two} />
+        </Grid>
+        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
+          <LatestPosts
+          textH2={" April 24, 2024"}
+          textP={"Yoga Event Helping marginalised Women"}
+          bgColorElement={Three}/>
+        </Grid>
+        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
+          <LatestPosts
+          textH2={" April 24, 2024"}
+          textP={"Dual-Drive Storage for Workflows"}
+          bgColorElement={Four} />
+        </Grid>
+        </Grid>
+        {/* End section Seven  Latest Posts */}
+        {/* Start section eight  Icons */}
+        <div className="my-40 ">
+        <Grid container spacing={2}>
+        <Grid  item xs={10}  md={6} lg={3}>
+        <SectionEightIcon textH2={"Free Delivery"} textP={"Free shipping on all order"}/>
+        </Grid>
+        <Grid item xs={10}  md={6} lg={3}>
+        <SectionEightIcon textH2={"Online support 24/7"} textP={"Support online 24 hours a day"}/>
+        </Grid>
+        <Grid item xs={10}  md={6} lg={3}>
+        <SectionEightIcon textH2={"Money return"} textP={"Back guarantee under 7 days"}/>
+        </Grid>
+        <Grid item xs={10}  md={6} lg={3}>
+        <SectionEightIcon textH2={"Member discount"} textP={"Onevery order over $120.00"}/>
+        </Grid>
+        </Grid>
+        </div>
+        {/* End section eight  Icons */}
+        {/* start section nine  ContactMe */}
+        <div className="my-40 ">
+        <Grid container spacing={2}>
+        <Grid margin={"auto"} item xs={10}  >
+        <ContentMe textH2={"Money return"} textP={"Back guarantee under 7 days"}/>
+        </Grid>
+        </Grid>
+        </div>
+        {/* End section nine  ContactMe */}
       </div>
-
     </>
   );
 }

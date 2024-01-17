@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 
-import { Box,Container,Typography } from '@mui/material';
+import { Box,Typography } from '@mui/material';
 
 import { useEffect } from "react";
 import AOS from "aos";
@@ -16,7 +16,6 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
       }, []);
     
     return (
-        // <Container>
         
             <Box className={` px-10   text-white   ${HightComp}  rounded-3xl shadow-2xl flex  
 
@@ -51,7 +50,7 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
 
                     <div className={`${positionP} relative z-10`} >
                         <Typography className='mb-3 text-[16px]' variant='p' component="p">{textP}</Typography>
-                        <p  className='text-[25px] font-extrabold sm:text-[30px] '  >{textH2}<br /></p>
+                        <p  className='text-[25px] font-extrabold sm:text-[30px] lg:text-[45px] '  >{textH2}<br /></p>
 
                         <button className={` hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `}  size="large">shop By Category</button>
 
@@ -68,7 +67,6 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
                     
                 </Box>
             )
-             {/* </Container> */}
 
 }
 // [data-aos] {
