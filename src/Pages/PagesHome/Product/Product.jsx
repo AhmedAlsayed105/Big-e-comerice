@@ -18,7 +18,9 @@ export default function Product({Imag,bgColorElement,positionImg,positionP,Direc
     });
   }, []);
 
-
+// const handelOpenCard = ()=>{
+//   console.log('s');
+// }
   return (
 
     <Box
@@ -38,12 +40,11 @@ export default function Product({Imag,bgColorElement,positionImg,positionP,Direc
         }} 
         >
         <IconButton  color="error">
-          <FavoriteBorderIcon />
+        <FavoriteBorderIcon />
         </IconButton>
         <IconButton >
-          <VisibilityOutlinedIcon />
+        <ShopIngCard ClickIconOnOpen={<VisibilityOutlinedIcon />}/>
         </IconButton>
-        
       </Stack>
       }
 
@@ -93,7 +94,7 @@ export default function Product({Imag,bgColorElement,positionImg,positionP,Direc
         </div>
         {/*  */}
 
-        <ShopIngCard/>
+        
     </Box>
   );
   

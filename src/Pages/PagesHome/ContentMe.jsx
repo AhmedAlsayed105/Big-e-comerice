@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import ContactMePhoto from "../../Image/ContactMe.jpg"
 
-export default function ContentMe() {
+export default function EmailMe() {
   return (
     <div className="lg:h-[95vh] text-white py-[110px] px-[40px] rounded-3xl"
     

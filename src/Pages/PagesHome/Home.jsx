@@ -14,13 +14,19 @@ import One from "../../Image/one.jpg";
 import Two from "../../Image/two.jpg";
 import Three from "../../Image/three.jpg";
 import Four from "../../Image/four.jpg";
+import WorldIcon from '../../Image/globe.png';
+import Gift from '../../Image/giftbox.png';
+import MoneyReturn from '../../Image/Money-return.png';
+import OlineSupport from '../../Image/online-support.png';
 // End Imag
 import { Grid } from "@mui/material";
 import SecondComponentsHome from "./SecondComponentsHome";
 import Product from "./Product/Product";
 import LatestPosts from "./LatestPosts";
 import SectionEightIcon from "./SectionEightIcon";
-import ContentMe from "./ContentMe";
+import Footer from "./Footer/Footer";
+import EmailMe from "./ContentMe";
+import FooterTwo from "./Footer/FooterTwo";
 
 export default function Home() {
   return (
@@ -34,7 +40,7 @@ export default function Home() {
               Imag={IphoneImage}
               Direction={"flex-col"}
               bgColorElement={"black"}
-              positionImg={"relative bottom-[45px]  sm:bottom-[0px]"}
+              positionImg={"relative bottom-[45px]  sm:bottom-[0px] lg:bottom-[25px]"}
               positionP={"mt-16"}
               bgButton={"bg-cyan-500 "}
               textH2={"todoIPhone 12 Pro It’s A Leap Year"}
@@ -47,7 +53,7 @@ export default function Home() {
               Imag={HeadPhon}
               Direction={"flex-col-reverse"}
               bgColorElement={" #FD734A "}
-              positionImg={"relative bottom-[-100px] md:bottom-[0px]"}
+              positionImg={"relative bottom-[-100px] md:bottom-[-30px]"}
               positionP={"mt-0 lg:mt-40 mb-[40px]"}
               bgButton={"bg-black "}
               textP={"Noise Cancelling"}
@@ -187,7 +193,7 @@ export default function Home() {
             </Grid>
             </Grid>
             <div className=" flex flex-col justify-start items-start my-24 ">
-              <h2 className=" sm:text-[45px] font-bold">New Arrival Products</h2>
+              <h2 className=" text-[25px] sm:text-[45px] font-bold">New Arrival Products</h2>
               <p className="font-[16px]  text-[#70798B]">There are many variations passages</p>
         </div>
         {/* End section Four */}
@@ -288,29 +294,44 @@ export default function Home() {
         <div className="my-40 ">
         <Grid container spacing={2}>
         <Grid  item xs={10}  md={6} lg={3}>
-        <SectionEightIcon textH2={"Free Delivery"} textP={"Free shipping on all order"}/>
+        <SectionEightIcon Icon={WorldIcon} textH2={"Free Delivery"} textP={"Free shipping on all order"}/>
         </Grid>
         <Grid item xs={10}  md={6} lg={3}>
-        <SectionEightIcon textH2={"Online support 24/7"} textP={"Support online 24 hours a day"}/>
+        <SectionEightIcon  Icon={OlineSupport}textH2={"Online support 24/7"} textP={"Support online 24 hours a day"}/>
         </Grid>
         <Grid item xs={10}  md={6} lg={3}>
-        <SectionEightIcon textH2={"Money return"} textP={"Back guarantee under 7 days"}/>
+        <SectionEightIcon  Icon={MoneyReturn} textH2={"Money return"} textP={"Back guarantee under 7 days"}/>
         </Grid>
         <Grid item xs={10}  md={6} lg={3}>
-        <SectionEightIcon textH2={"Member discount"} textP={"Onevery order over $120.00"}/>
+        <SectionEightIcon Icon={Gift} textH2={"Member discount"} textP={"Onevery order over $120.00"}/>
         </Grid>
         </Grid>
         </div>
         {/* End section eight  Icons */}
         {/* start section nine  ContactMe */}
-        <div className="my-40 ">
+        <div className="mt-40 ">
         <Grid container spacing={2}>
         <Grid margin={"auto"} item xs={10}  >
-        <ContentMe textH2={"Money return"} textP={"Back guarantee under 7 days"}/>
+        <EmailMe />
         </Grid>
         </Grid>
         </div>
         {/* End section nine  ContactMe */}
+        {/* Start section Ten  Footer */}
+        <Grid container spacing={2} marginTop={"50px"}>
+        <Grid margin={"auto"} item xs={10}  >
+          <Footer/>
+        </Grid>
+        </Grid>
+        <div className="w-full  h-[1px] bg-[#B5B8CD] mt-14 mb-6"></div>
+        {/* End section Ten  Footer */}
+        {/*  */}
+        <Grid container spacing={2} >
+        <Grid margin={"0 auto"} item xs={10}  >
+          <FooterTwo/>
+        </Grid>
+        </Grid>
+        {/*  */}
       </div>
     </>
   );

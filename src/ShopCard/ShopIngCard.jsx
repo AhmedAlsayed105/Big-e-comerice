@@ -5,13 +5,28 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
-import photos from "./../Image/handfry.png";
 import useMediaQuery from '@mui/material/useMediaQuery';
+// 
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export default function ShopIngCard() {
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import '../styles/swiper.css';
+import log from '../Image/Camer.png'
+
+// import required modules
+import { Keyboard, Pagination, Navigation } from 'swiper/modules';
+
+
+
+
+
+export default function ShopIngCard({ClickIconOnOpen}) {
   const [count, setCount] = useState(1);
   const [state, setState] = useState({
     top: false,
@@ -39,31 +54,30 @@ export default function ShopIngCard() {
 
   return (
     <div className="">
-      {/* Start Card On small screen */}
-
-      {/* {useMediaQuery('(max-width:900px)') && ( */}
-      <>
         <IconButton aria-label="cart" onClick={toggleDrawer("right", true)}>
-          <MenuIcon />
+        {ClickIconOnOpen}
         </IconButton>
         <Drawer
           sx={{
             ".MuiPaper-elevation": {
-            
-              height: "fit-content",
+              position: "sticky",
+              top: "calc((100% - 570px)/2) !important",
+              display:"block",
+              margin:"0 auto",
+              width: "100%",
+              height: "570px",
               maxWidth: "1000px",
-              top: "190px",
-              margin:"0 5% "
-
+              border: "none",
+              padding: "0",
+              borderRadius:"39px",
             },
-            width: "fit-content",
+            // width: "fit-content",
 
           }}
           anchor={"right"}
           open={state["right"]}
-          onClose={toggleDrawer("right", false)} // false
+          onClose={toggleDrawer("right", true)} // trueNoCLose  onclose false
         >
-          <>
             <IconButton
               sx={{
                 ":hover": { rotate: "180deg", transition: "0.3s ", color: "red" },
@@ -75,6 +89,7 @@ export default function ShopIngCard() {
             >
               <CloseIcon />
             </IconButton>
+          <div className=' '>
             <Box
               sx={{
                 width: "100%",
@@ -82,58 +97,64 @@ export default function ShopIngCard() {
                 justifyContent: "center",
                 alignItems: "center",
               }}
-              className="border-test"
+              className=" container p-5"
               role="presentation"
-              onKeyDown={toggleDrawer("left", false)}
+              onKeyDown={toggleDrawer("left", true)}
             >
               {/* Start Her  */}
-              <Stack flexDirection={`${media ? "column" : "row"}`}>
+              <Stack justifyContent={'center'} flexDirection={`${media ? "column" : "row"}`}>
 
-                <Box className="border-test grow">
+                <Box className="">
                   {/* slider */}
-                  
-                  <img src={photos} className='max-w-[400px] max-h-[300px]' />
-                  
-
-
+                  <Swiper
+        loop={true}
+        slidesPerView={1}
+        spaceBetween={30}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Keyboard, Pagination, Navigation]}
+        className="max-w-[300px]  sm:max-w-[500px] "
+      >
+        <SwiperSlide>
+        <img src={log} className='max-w-[300px] max-h-[300px]  p-1 border '  />
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src={log} className='max-w-[300px] max-h-[300px]  p-1 border '  />
+        </SwiperSlide>
+      </Swiper>
                   {/* slider */}
                 </Box>
-                <Box className="border-test">
-                  <Typography variant="p" component="h2">
+                <Box className=" flex flex-col gap-3">
+                  <p className='font-extrabold text-[30px] sm:text-[35px]'>
                     Momentum Phone
+                  </p>
+                  <Typography className="text-[#70798B] " variant="h4" component="h4">
+                    $350
                   </Typography>
-                  <Typography>
-                    350$
-                  </Typography>
-                  <Typography>
+                  <Typography className="text-[#70798B] " variant="h6" component="h6">
                     This NoiseStorm font is inspired by Classic Retro and Vintage apparel, headlines, signage, logo, quote, apparel and other creative applications.
                   </Typography>
                 <Box
-                  // sx={{
-                  //   color: 'action.active',
-                  //   display: 'flex',
-                  //   flexDirection: 'column',
-                  //   '& > *': {
-                  //     marginBottom: 2,
-                  //   },
-                  //   '& .MuiBadge-root': {
-                  //     marginRight: 4,
-                  //   },
-                  // }}
                 >
-
-                  <div>
-                    <ButtonGroup>
+                  <div className='my-2  flex flex-row gap-5'>
+                    <ButtonGroup sx={{borderRadius:"999px"}} className='bg-[#E7E7E7] p-3 flex flex-row gap-2 items-center'>
                       <Button
                         aria-label="reduce"
                         onClick={() => {
                           setCount(Math.max(count - 1, 0));
                         }}
+                        variant="black"
                       >
-                        <RemoveIcon fontSize="small" />
+                        <RemoveIcon  fontSize="small" />
                       </Button>
-                      <h1>{count}</h1>
+                      <p className='text-[20px] '>{count}</p>
                       <Button
+                        variant="black"
                         aria-label="increase"
                         onClick={() => {
                           setCount(count + 1);
@@ -142,26 +163,14 @@ export default function ShopIngCard() {
                         <AddIcon fontSize="small" />
                       </Button>
                     </ButtonGroup>
+                    <button className='bg-[#1723BD] hover:bg-[#3c47df] w-[150px]  p-6 text-white rounded-full'>Add To Cart</button>
                   </div>
-
-
                   </Box>
                 </Box>
               </Stack>
-
-
-
-              {/* Start Her  */}
-
-              <Divider />
             </Box>
-          </>
+          </div>
         </Drawer>
-      </>
-      {/* ) */}
-      {/* } */}
-
-      {/* End NavBar Small screen */}
     </div>
   );
 

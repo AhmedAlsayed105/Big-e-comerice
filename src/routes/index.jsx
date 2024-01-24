@@ -1,7 +1,7 @@
 
 import {createBrowserRouter,createRoutesFromElements,Route} from "react-router-dom";
 import Home from "../Pages/PagesHome/Home";
-import About from "../Pages/About";
+import About from "../Pages/About/About";
 import Shop from "../Pages/Shop";
 import Blog from "../Pages/Blog";
 import Content from "../Pages/Content";
