@@ -2,16 +2,28 @@ import { Grid, Typography } from "@mui/material";
 import Logo from "../../../Image/Logo.png"
 import { Link, NavLink } from "react-router-dom";
 
+import { useEffect } from "react";
+import AOS from "aos";
 
 export default function Footer() {
-    // <Grid container >  rowSpacing={8} columnSpacing={2}
+
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+
     return (
         <Grid container columnSpacing={2}>
-            <Grid item xs={12} md={12} lg={2} marginBottom={"20px"}>
+            <Grid item xs={12} md={12} lg={2} marginBottom={"20px"}
+            data-aos="fade-right"
+            >
                 <img src={Logo} alt="Logo" />
             </Grid>
 
-            <Grid item xs={12} md={6} lg={2}>
+            <Grid item xs={12} md={6} lg={2}
+            data-aos="fade-right"
+            >
                 <Typography sx={{ marginBottom: "10px", fontWeight: "700" }} variant="h5" component="h2" >
                     Visit Link
                 </Typography>
@@ -21,7 +33,9 @@ export default function Footer() {
                     <li>Terms & Conditions</li>
                 </ul>
             </Grid>
-            <Grid item xs={12} md={6} lg={2}>
+            <Grid item xs={12} md={6} lg={2}
+            data-aos="fade-right"
+            >
                 <Typography sx={{ marginBottom: "10px", fontWeight: "700" }} variant="h5" component="h2" >
                     Company
                 </Typography>
@@ -33,7 +47,9 @@ export default function Footer() {
             </Grid>
 
 
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={3}
+            data-aos="fade-right"
+            >
                 <Typography sx={{ marginBottom: "10px", fontWeight: "700" }} variant="h5" component="h2" >
                     Contact
                 </Typography>
@@ -42,7 +58,9 @@ export default function Footer() {
                     <li>AhmedAlsayedIssa@gmail.com</li>
                 </ul>
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={3}
+            data-aos="fade-right"
+            >
                 <Typography sx={{ marginBottom: "10px", fontWeight: "700" }} variant="h5" component="h2" >
                     Address
                 </Typography>

@@ -1,6 +1,7 @@
     import { Box,Container,Stack,Typography } from '@mui/material';
 
     import { useEffect, useState } from "react";
+    import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
     import AOS from "aos";
     import "aos/dist/aos.css";
 
@@ -51,8 +52,6 @@ export default function LatestPosts({bgColorElement,textP,textH2}) {
     }
     
 }}
-
-
 >
         
         <Container>
@@ -61,12 +60,12 @@ export default function LatestPosts({bgColorElement,textP,textH2}) {
         <p  className='text-[25px] font-semibold sm:text-[30px] '  >{textP}</p>
         <p  className={`mt-6 mb-12 h-1 font-medium  ${isHovered?"bg-white":"bg-[#4F56DB]"}`}  ></p>
         </Box>
-        <Box className="mt-6 mb-12 font-medium flex items-center gap-3">
+        <div className="mt-6 mb-12 font-medium flex items-center gap-3 z-50 cursor-pointer">
             Read More
             <p>
-                s
+              <ArrowRightAltIcon/>
             </p>
-        </Box>
+        </div>
         
     </Container>
     </Stack>

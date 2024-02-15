@@ -5,25 +5,27 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import LinksSmallScreen from "./LinksSmallScreen";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchPage from './SearchPage'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export default function HeaderTwo() {
   return (
     <nav className="my-5 container mx-auto ">
       {/* <Container> */}
       <Stack sx={{ padding:"10px"}} direction={"row"} justifyContent={"space-between"}  alignItems={"center"}>
 {/* start Div green */}
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center relative z-10">
             {/* <Box className="flex-1"> */}
-              <img src={Logo} alt="logo" />
+          <Link to={"/"} >
+                <img src={Logo} alt="logo" />
+          </Link >
             {/* </Box> */}
             <Box className="flex items-center  gap-10" >
                 {/* start part 765px to 900px  */}
               {useMediaQuery(" (min-width:765px) and (max-width:900px)") && (
-                <Box className="cursor-pointer flex flex- items-center flex-row gap-10">
-                  <div className=" flex flex- items-center flex-row gap-2 text-black ">
+                <Box className="relative z-10 cursor-pointer flex flex- items-center flex-row gap-10">
+                  <Link to={"LogIn"}  className="flex flex- items-center flex-row gap-2 text-black ">
                     <PersonOutlineOutlinedIcon />
                     <p className="text-black font-thine">Login</p>
-                  </div>
+                  </Link>
                   <div className=" flex  items-center flex-row ">
                     <SearchPage/>
                   </div>
@@ -55,11 +57,11 @@ export default function HeaderTwo() {
               {
                 useMediaQuery("(min-width:901px)") &&
                 (
-                  <Box className="cursor-pointer flex flex- items-center flex-row gap-10">
-                  <div className=" flex flex- items-center flex-row gap-2 text-black ">
+                  <Box className=" relative z-10 cursor-pointer flex flex- items-center flex-row gap-10">
+                  <Link to={"LogIn"}  className=" flex flex- items-center flex-row gap-2 text-black ">
                     <PersonOutlineOutlinedIcon />
                     <p className="text-black font-thine">Login</p>
-                  </div>
+                  </Link>
                   <div className=" flex  items-center flex-row ">
                     <SearchPage/>
                   </div>

@@ -10,10 +10,6 @@ import Watch from "../../Image/watch.png";
 import Camera from "../../Image/Camer.png";
 import PlaySetion from "../../Image/playsetion.png";
 import Handfry from "../../Image/handfry.png";
-import One from "../../Image/one.jpg";
-import Two from "../../Image/two.jpg";
-import Three from "../../Image/three.jpg";
-import Four from "../../Image/four.jpg";
 import WorldIcon from '../../Image/globe.png';
 import Gift from '../../Image/giftbox.png';
 import MoneyReturn from '../../Image/Money-return.png';
@@ -27,8 +23,38 @@ import SectionEightIcon from "./SectionEightIcon";
 import Footer from "./Footer/Footer";
 import EmailMe from "./ContentMe";
 import FooterTwo from "./Footer/FooterTwo";
+import { DataPostsApi } from "../../Data/DataPosts";
+import { DataProductApi } from "../../Data/DataProduct";
 
 export default function Home() {
+
+  const dataSlice = DataPostsApi.slice(0,4)
+  const DATAPOSTS = dataSlice.map(({title,description,image},index)=>(
+      <Grid key={index} item margin={" auto "} xs={11}  md={6} lg={3}>
+    <LatestPosts 
+    textH2={title}
+    textP={description}
+    bgColorElement={image}/>
+    </Grid>
+    ))
+  // DataProduct
+  const dataProductSlice = DataProductApi.slice(0,8)
+  const dataProductApi = dataProductSlice.map((productApi)=>( //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
+        <Grid key={productApi.id} item xs={12} sm={6} md={3}>
+        <Product 
+      data={productApi}
+      />
+    </Grid>
+    ))
+  const dataProductSliceTwo = DataProductApi.slice(4,8)
+  const dataProductApiTwo = dataProductSliceTwo.map((productApi)=>( //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
+        <Grid key={productApi.id} item xs={12} sm={6} md={3}>
+        <Product 
+          data={productApi}
+        />
+    </Grid>
+    ))
+    
   return (
     <>
       <div className="  mx-4  px-1 ">
@@ -75,7 +101,6 @@ export default function Home() {
           </Grid>
         </Grid>
           {/* End section One  */}
-
         {/* section Two */}
         <div className="  mt-10  flex gap-5">
           <Grid container spacing={2}>
@@ -110,7 +135,6 @@ export default function Home() {
                     </>
                   }
                 />
-
                 <SecondComponentsHome
                   Image={Watch}
                   bgColorElement={"#CF364C"}
@@ -127,7 +151,6 @@ export default function Home() {
                 />
               </div>
             </Grid>
-
             <Grid item xs={12} md={4}>
               <FirstComponentsHome
                 HightComp={" h-[500px] sm:h-[700px]"}
@@ -144,7 +167,6 @@ export default function Home() {
           </Grid>
         </div>
         {/* End section Two */}
-
         {/* start section Product and section Three */}
         <div className="flex flex-col justify-center items-center my-24 ">
               <h2 className="text-[30px] sm:text-[45px] font-bold">Best Seller Products</h2>
@@ -152,26 +174,11 @@ export default function Home() {
         </div>
         
         <Grid container spacing={2} className="my-24">
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        
+        {
+              dataProductApi
+        }
         </Grid>
     {/* End section Product and section Three */}
-    
     {/* Start section Four */}
       <Grid  container   spacing={2}>
               <Grid  item margin={"auto"} xs={11} lg={11} >
@@ -197,26 +204,11 @@ export default function Home() {
               <p className="font-[16px]  text-[#70798B]">There are many variations passages</p>
         </div>
         {/* End section Four */}
-
         {/* start section Five Product */}
         <Grid container spacing={2} className="my-24">
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-             
-        <Product/>
-        </Grid>
-        
+        {
+          dataProductApiTwo
+        }
         </Grid>
         {/* End section Five Product */}
         {/* start section Six  */}
@@ -264,30 +256,9 @@ export default function Home() {
               <h2 className=" sm:text-[45px] font-bold">Latest Posts</h2>
         </div>
         <Grid   container spacing={2} >
-        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
-          <LatestPosts 
-          textH2={" April 24, 2024"}
-          textP={"GameStop to Offer Up to $1 Billion in"}
-          bgColorElement={One}/>
-        </Grid>
-        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
-          <LatestPosts
-          textH2={" April 24, 2024"}
-          textP={"SPAC Called 5G Edge Wants to Go Public"}
-           bgColorElement={Two} />
-        </Grid>
-        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
-          <LatestPosts
-          textH2={" April 24, 2024"}
-          textP={"Yoga Event Helping marginalised Women"}
-          bgColorElement={Three}/>
-        </Grid>
-        <Grid item margin={" auto "} xs={11}  md={6} lg={3}>
-          <LatestPosts
-          textH2={" April 24, 2024"}
-          textP={"Dual-Drive Storage for Workflows"}
-          bgColorElement={Four} />
-        </Grid>
+        {
+            DATAPOSTS
+        }
         </Grid>
         {/* End section Seven  Latest Posts */}
         {/* Start section eight  Icons */}

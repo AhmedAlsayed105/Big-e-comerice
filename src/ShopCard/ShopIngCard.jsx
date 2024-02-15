@@ -6,26 +6,20 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from "@mui/icons-material/Close";
 import Drawer from "@mui/material/Drawer";
-import Divider from "@mui/material/Divider";
 import useMediaQuery from '@mui/material/useMediaQuery';
-// 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import '../styles/swiper.css';
-import log from '../Image/Camer.png'
-
-// import required modules
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 
+import log from '../Image/Camer.png'
 
 
 
 
+// eslint-disable-next-line react/prop-types
 export default function ShopIngCard({ClickIconOnOpen}) {
   const [count, setCount] = useState(1);
   const [state, setState] = useState({

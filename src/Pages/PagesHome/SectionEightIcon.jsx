@@ -1,12 +1,20 @@
 import { Box, Stack, Typography } from "@mui/material"
 
 
+import { useEffect } from "react";
+import AOS from "aos";
+
 // eslint-disable-next-line react/prop-types
 function SectionEightIcon({Icon,textP,textH2}) {
-  console.log(Icon);
+  useEffect(() => {
+    AOS.init({
+      duration : 2000
+    });
+  }, []);
   return (  
-        <div className="">
-        <Stack flexDirection={"row"} alignItems={"center"} gap={"30px"}>
+        <Stack flexDirection={"row"} alignItems={"center"} gap={"30px"}
+        data-aos="fade-right"
+        >
             <Box>
                 <img className="max-w-[60px] h-fit" src={Icon}/>
             </Box>
@@ -15,7 +23,6 @@ function SectionEightIcon({Icon,textP,textH2}) {
             <p  className='text-[#474747] font-medium'  >{textP}</p>
             </Box>
         </Stack>
-        </div>
   )
 }
 
