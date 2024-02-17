@@ -40,15 +40,15 @@ export default function Home() {
   // DataProduct
   const dataProductSlice = DataProductApi.slice(0,8)
   const dataProductApi = dataProductSlice.map((productApi)=>( //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-        <Grid key={productApi.id} item xs={12} sm={6} md={3}>
+        <Grid key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
         <Product 
       data={productApi}
       />
     </Grid>
     ))
   const dataProductSliceTwo = DataProductApi.slice(4,8)
-  const dataProductApiTwo = dataProductSliceTwo.map((productApi)=>( //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-        <Grid key={productApi.id} item xs={12} sm={6} md={3}>
+  const dataProductApiTwo = dataProductSliceTwo.map((productApi)=>( 
+        <Grid key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
         <Product 
           data={productApi}
         />
@@ -92,7 +92,7 @@ export default function Home() {
               Imag={Laptop}
               Direction={"flex-col"}
               bgColorElement={"black"}
-              positionImg={"relative bottom-[0px]"}
+              positionImg={"relative bottom-[19px]"}
               positionP={"mt-16"}
               bgButton={"bg-violet-500 "}
               textP={"Macbook Pro"}

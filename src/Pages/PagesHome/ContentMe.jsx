@@ -3,6 +3,8 @@ import ContactMePhoto from "../../Image/ContactMe.jpg";
 import { useEffect } from "react";
 import Aos from "aos";
 import { useRef } from 'react';
+import swal from 'sweetalert';
+
 import emailjs from '@emailjs/browser'
 export default function EmailMe() {
   useEffect(() => {
@@ -11,8 +13,8 @@ export default function EmailMe() {
     });
   }, []);
   const media = useMediaQuery(("(min-width:0) and (max-width:650px)"))
+  
   const form = useRef();
-
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -22,10 +24,26 @@ export default function EmailMe() {
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          swal({
+            title: "Good job!",
+            text: "The message was sent successfully ⚡️",
+            icon: "success",
+            button: "Close!",
+          });
+          form.current[0].value = "";
+          form.current[1].value = ""
+          form.current[2].value = ""
         },
         (error) => {
           console.log('FAILED...', error.text);
+          swal({
+            title: `${error.text}!`,
+            icon: "error",
+            button: "Close",
+          });
+          form.current[0].value = "";
+          form.current[1].value = ""
+          form.current[2].value = ""
         },
       );
   };
@@ -73,7 +91,8 @@ export default function EmailMe() {
                 (
                   <>
                     <div className=" flex items-center  relative">
-                      <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" name="message" />
+                      {/* <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" type="text" name="message" /> */}
+                      <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" name="message"></textarea>
                     </div>
                     <button
                       type="submit"
@@ -87,7 +106,9 @@ export default function EmailMe() {
                 :
                 (
                   <div className=" flex items-center  relative">
-                    <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" name="message" />
+                    {/* <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" type="text" name="message" /> */}
+                    <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" name="message"></textarea>
+                    
                     <button
                       type="submit"
                       className={` absolute right-[5px] w-[180px]   text-[#E60E7D] bg-white  h-[50px] hover:bg-black hover:text-white   font-medium   rounded-3xl   duration-200 `}
@@ -109,13 +130,3 @@ export default function EmailMe() {
 // background-position: center center;
 // background-repeat: no-repeat;
 // background-size: cover;
-{/* <div className=" flex items-center  relative">
-        <textarea className="h-[60px] sm:h-[70px]  bg-[transparent] rounded-xl px-3  w-full outline-none border-[2px] border-[#F6A8D2] placeholder-[#F6A8D2]" name="message" />
-        <button
-              type="submit"
-              className={` absolute right-[5px] w-[180px]   text-[#E60E7D] bg-white  h-[50px] hover:bg-black hover:text-white   font-medium   rounded-3xl   duration-200 `}
-              size="large"
-        >
-              send
-          </button> 
-</div> */}

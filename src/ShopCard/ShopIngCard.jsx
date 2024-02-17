@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { IconButton, Box, Stack, Typography } from '@mui/material';
@@ -14,13 +15,9 @@ import 'swiper/css/navigation';
 import '../styles/swiper.css';
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 
-import log from '../Image/Camer.png'
-
-
-
 
 // eslint-disable-next-line react/prop-types
-export default function ShopIngCard({ClickIconOnOpen}) {
+export default function ShopIngCard({ClickIconOnOpen,data}) {
   const [count, setCount] = useState(1);
   const [state, setState] = useState({
     top: false,
@@ -76,6 +73,7 @@ export default function ShopIngCard({ClickIconOnOpen}) {
               sx={{
                 ":hover": { rotate: "180deg", transition: "0.3s ", color: "red" },
                 position: "absolute",
+                zIndex:100,
                 right: 10,
                 top: 8,
               }}
@@ -112,24 +110,30 @@ export default function ShopIngCard({ClickIconOnOpen}) {
         }}
         navigation={true}
         modules={[Keyboard, Pagination, Navigation]}
-        className="max-w-[300px]  sm:max-w-[500px] "
+        className="max-w-[300px]  sm:max-w-[500px] cursor-pointer "
       >
         <SwiperSlide>
-        <img src={log} className='max-w-[300px] max-h-[300px]  p-1 border '  />
+
+        <img src={data?.data.ImageOne} className='sm:max-w-[380px] max-w-[300px] max-h-[300px] sm:max-h-[380px]  p-1 border '  />
         </SwiperSlide>
         <SwiperSlide>
-        <img src={log} className='max-w-[300px] max-h-[300px]  p-1 border '  />
+        <img src={data?.data.ImageTwo} className='sm:max-w-[380px] max-w-[300px] max-h-[300px] sm:max-h-[380px]  p-1 border '  />
         </SwiperSlide>
       </Swiper>
                   {/* slider */}
                 </Box>
-                <Box className=" flex flex-col gap-3">
-                  <p className='font-extrabold text-[30px] sm:text-[35px]'>
-                    Momentum Phone
+                <Box className=" flex flex-col gap-3 justify-evenly">
+                  <p className='font-extrabold text-[20px] sm:text-[35px]'>
+                    {data?.data.name}
                   </p>
-                  <Typography className="text-[#70798B] " variant="h4" component="h4">
-                    $350
-                  </Typography>
+                  <Box className="font-extrabold text-[20px]  sm:text-[25px] flex gap-3 items-center" >
+              {
+                <>
+                <p >${data.data?.priceNews}</p>
+                <p className="text-[#767F90] text-[18px]">{data.data?.priceOld === "" ? "" : <del > {"$"+data.data?.priceOld}</del>}</p> 
+                </>
+              }
+              </Box>
                   <Typography className="text-[#70798B] " variant="h6" component="h6">
                     This NoiseStorm font is inspired by Classic Retro and Vintage apparel, headlines, signage, logo, quote, apparel and other creative applications.
                   </Typography>

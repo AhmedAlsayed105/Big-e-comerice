@@ -18,7 +18,9 @@ export default function Footer() {
             <Grid item xs={12} md={12} lg={2} marginBottom={"20px"}
             data-aos="fade-right"
             >
+                <Link to={"/"}>
                 <img src={Logo} alt="Logo" />
+                </Link>
             </Grid>
 
             <Grid item xs={12} md={6} lg={2}
@@ -28,7 +30,7 @@ export default function Footer() {
                     Visit Link
                 </Typography>
                 <ul className="text-[#70798B] text-[19px] flex flex-col gap-2">
-                    <NavLink to={"shop"}>Shop</NavLink>
+                    <NavLink to={"/shop"}>Shop</NavLink>
                     <li>Privacy</li>
                     <li>Terms & Conditions</li>
                 </ul>
@@ -41,8 +43,8 @@ export default function Footer() {
                 </Typography>
                 <ul className="text-[#70798B] text-[19px] flex flex-col gap-2 mb-2">
                     <Link to={"/"}>Home</Link>
-                    <NavLink to={"about"}>About Us</NavLink>
-                    <NavLink to={"contact"}>Contact Us</NavLink>
+                    <NavLink to={"/about"}>About Us</NavLink>
+                    <NavLink to={"/contact"}>Contact Us</NavLink>
                 </ul>
             </Grid>
 

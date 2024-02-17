@@ -5,6 +5,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 export default function SecondComponentsHome({ Image, bgColorElement,positionP, bgButton, textH2, textP ,textColor }) {
@@ -49,8 +50,9 @@ export default function SecondComponentsHome({ Image, bgColorElement,positionP, 
                 <div className={positionP}>
                     <Typography className={` text-2xl ${textColor}`} variant='p' component="p">{textP}</Typography>
                     <p className={`text-[30px] font-bold lg:text-[30px] ${textColor}`}  >{textH2}<br /></p>
-
+                    <Link to={"/shop"}>
                     <button className={`relative z-10 hover:bg-white hover:text-black text-white font-medium w-[180px] h-[50px] mt-4 rounded-3xl ${bgButton}  duration-200 `} size="large">shop By Category</button>
+                    </Link>
 
                 </div>
 

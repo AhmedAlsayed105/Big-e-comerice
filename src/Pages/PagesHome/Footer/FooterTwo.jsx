@@ -6,7 +6,7 @@ export default function FooterTwo() {
   <div className="flex flex-row justify-between mb-5">
     <div>
     © 2024 By Averta. All rights reserved.
-    <a className="text-blue-500" href="https://www.linkedin.com/in/ahmed-alsayed-issa/" target="_blank" rel="noreferrer">Developer AhmedAlsayed</a>
+    <a className="text-blue-500" href="https://ahmedalsayed.netlify.app/" target="_blank" rel="noreferrer">Developer AhmedAlsayed</a>
 
     </div>
     <div className="flex gap-2">

@@ -10,7 +10,6 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import ShopIngCard from "../../../ShopCard/ShopIngCard";
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 export default function Product(productApi) { //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-  console.log();
     const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
   return (
 <div className=" h-[490px] ">
       <Box
-        className={` transition duration-700 ease-in-out px-5 text-white rounded-3xl border-2 border-[#70798b4d] hover:shadow-2xl hover:border-[#ddd] relative  `}
+        className={`${isHovered ? "h-[490px]" :"h-[420px] "} transition duration-700 ease-in-out px-5 text-white rounded-3xl border-2 border-[#70798b4d] hover:shadow-2xl hover:border-[#ddd] relative  `}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)} 
       >                                                                                                       
@@ -35,7 +34,7 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
           <FavoriteBorderIcon />
           </IconButton>
           <IconButton >
-          <ShopIngCard ClickIconOnOpen={<VisibilityOutlinedIcon />}/>
+          <ShopIngCard data={productApi}  ClickIconOnOpen={<VisibilityOutlinedIcon />}/>
           </IconButton>
         </Stack>
         <div className="h-[299px] max-w-[300px] max-h-[300px] cursor-pointer transition duration-700 ease-in-out">
@@ -56,16 +55,21 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
             >
               {productApi.data?.name}
             </Typography>
-            <Typography className="mb-3 font-extrabold" component="span">
-              365$
+            <Box className="mb-3 font-extrabold" component="span">
+              {
+                <>
+                <p className="text-[#767F90] font-thin">{productApi.data?.priceOld === "" ? "" : <del > {"$"+productApi.data?.priceOld}</del>}</p> 
+                <p >${productApi.data?.priceNews}</p>
+                </>
+              }
               
-            </Typography>
+            </Box>
           </Stack>
           <p className="text-[15px]  text-[#70798B]   ">
             Game Console Control ...
           </p>
   
-  <div data-aos="top" className= {`transition duration-700  ease-in-out opacity-0 fixed ${isHovered ? " opacity-[1] relative " : ""}`}>
+  <div data-aos="top" className= {`cursor-pointer transition duration-700  ease-in-out opacity-0 fixed ${isHovered ? " opacity-[1] relative " : ""}`}>
             <Stack
   
             flexDirection={"row"}
@@ -73,7 +77,7 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
             alignItems={"center"}
             className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4  "
             >
-              <button size="large">shop By Category</button>
+              <button size="large">Add To Cart</button>
               <ShoppingBagOutlinedIcon/>
             </Stack>
       </div>
