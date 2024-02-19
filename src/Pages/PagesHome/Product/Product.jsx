@@ -9,14 +9,29 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import ShopIngCard from "../../../ShopCard/ShopIngCard";
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-export default function Product(productApi) { //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-    const [isHovered, setIsHovered] = useState(false);
+import { useDispatch,  } from "react-redux";
+import { addProductToCart } from "../../../Redux/CartSlice";
 
+export default function Product(productApi) { //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
+  // const cart = useSelector(state => state.cart)
+  // console.log(cart);
+  const dispatch  = useDispatch()  
+  // console.log(productApi.data);
+  
+  const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 2000,
     });
   }, []);
+
+  const checkRedux = ()=>{
+    console.log("true");
+    dispatch(addProductToCart(productApi.data))
+  }
+
+
+
 
   return (
 <div className=" h-[490px] ">
@@ -70,16 +85,12 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
           </p>
   
   <div data-aos="top" className= {`cursor-pointer transition duration-700  ease-in-out opacity-0 fixed ${isHovered ? " opacity-[1] relative " : ""}`}>
-            <Stack
-  
-            flexDirection={"row"}
-            justifyContent={"space-around"}
-            alignItems={"center"}
-            className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4  "
+            <Box
             >
-              <button size="large">Add To Cart</button>
+              <button  className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4 flex items-center justify-around " size="large" onClick={checkRedux}>Add To Cart
               <ShoppingBagOutlinedIcon/>
-            </Stack>
+              </button>
+            </Box>
       </div>
       
         </div>

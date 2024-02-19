@@ -6,7 +6,10 @@ import LinksSmallScreen from "./LinksSmallScreen";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchPage from './SearchPage'
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function HeaderTwo() {
+  const cart = useSelector(state => state.cart)
+  
   return (
     <nav className="my-5 container mx-auto ">
       {/* <Container> */}
@@ -33,7 +36,6 @@ export default function HeaderTwo() {
               )}
             {/*  end part 765px to 900px*/}
             </Box>
-
             {/*  start Link Big screen part 901px  */}
           {
         useMediaQuery("(min-width:901px)") && (
@@ -47,12 +49,8 @@ export default function HeaderTwo() {
           )
           }
           {/*  End Link Big screen part 901px  */}
-        
-          
           </div>
 {/* end div green */}
-
-
 <div className="flex">
               {
                 useMediaQuery("(min-width:901px)") &&
@@ -73,7 +71,7 @@ export default function HeaderTwo() {
                {useMediaQuery("(min-width:901px)") &&
               (
                 <IconButton aria-label="cart">
-                <Badge badgeContent={4} color="primary">
+                <Badge badgeContent={cart.length} color="primary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>

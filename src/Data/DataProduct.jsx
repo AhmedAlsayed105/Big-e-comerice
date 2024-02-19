@@ -100,7 +100,7 @@ export  const DataProductApi =
     ImageOne : ImageSeven,
     ImageTwo : ImageFour_2,
     description : "Game Console Contr ...",
-    Category:"Cameras",
+    Category:"Cameras & Audio",
     Brand : "Samsung",
     sales : true
 },
@@ -112,7 +112,7 @@ export  const DataProductApi =
     ImageOne : ImageEight,
     ImageTwo : ImageNine,
     description : "Game Console Contr ...",
-    Category:"Headphones",
+    Category:"Accessories",
     Brand : "Sony",
     sales : false
 },
@@ -124,7 +124,7 @@ export  const DataProductApi =
     ImageOne : ImageNine,
     ImageTwo : ImageEight,
     description : "Game Console Contr ...",
-    Category:"Headphones",
+    Category:"Smartphones",
     Brand : "Sony",
     sales : true
 },
@@ -136,7 +136,7 @@ export  const DataProductApi =
     ImageOne : ImageFour_2,
     ImageTwo : ImageTen,
     description : "Game Console Contr ...",
-    Category:"Headphones",
+    Category:"Watches",
     Brand : "Sony",
     sales : true
 },

@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-
-
 import { Box,Typography } from '@mui/material';
-
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";

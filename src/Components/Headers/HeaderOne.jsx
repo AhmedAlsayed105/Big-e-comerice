@@ -22,7 +22,6 @@ export default function HeaderOne() {
         Worlds Fastest Online Shopping Destination
     </Typography>
         </Box>
-        {/*  */}
     <Box className="flex flex-col sm:flex-row gap-5 my-1 ">
    <Box className="flex gap-2">
      <PhoneInTalkOutlinedIcon/>
