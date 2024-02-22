@@ -9,7 +9,7 @@ export default function FirstComponentsHome({ Imag,bgColorElement, positionImg,p
     
     useEffect(() => {
         AOS.init({
-          duration : 2000
+            duration: 1200,
         });
       }, []);
     

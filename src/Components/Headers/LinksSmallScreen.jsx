@@ -7,8 +7,12 @@ import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { useSelector } from "react-redux";
+
 export default function LinksSmallScreen() {
+  const cart = useSelector(state => state.cart)
+
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -31,8 +35,8 @@ export default function LinksSmallScreen() {
     <div>
       {/* Start Card On small screen */}
       <IconButton aria-label="cart">
-        <Badge badgeContent={4} color="primary">
-          <ShoppingCartIcon />
+        <Badge badgeContent={cart.length} color="primary">
+          <Link to={"pageCart"}><ShoppingCartIcon/></Link>
         </Badge>
       </IconButton>
       {/* Start Card On small screen */}

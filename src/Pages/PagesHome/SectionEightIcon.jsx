@@ -8,7 +8,7 @@ import AOS from "aos";
 function SectionEightIcon({Icon,textP,textH2}) {
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration: 1200,
     });
   }, []);
   return (  

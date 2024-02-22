@@ -8,7 +8,7 @@ import AOS from "aos";
 export default function SectionOneAbout() {
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration : 1200
     });
   }, []);
 

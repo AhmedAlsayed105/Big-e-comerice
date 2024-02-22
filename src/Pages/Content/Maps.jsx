@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser'
 export default function Maps() {
   useEffect(() => {
     Aos.init({
-      duration: 2000,
+      duration: 1200,
     });
   }, []);
 

@@ -12,7 +12,7 @@ export default function LatestPosts({bgColorElement,textP,textH2}) {
 
     useEffect(() => {
         AOS.init({
-          duration : 2000
+          duration: 1200,
         });
       }, []);
 
@@ -53,7 +53,6 @@ export default function LatestPosts({bgColorElement,textP,textH2}) {
     
 }}
 >
-        
         <Container>
         <Box className="mt-12  ">
         <Typography className='mb-3 text-[16px]' variant='p' component="p">{textH2}</Typography>
@@ -66,7 +65,6 @@ export default function LatestPosts({bgColorElement,textP,textH2}) {
               <ArrowRightAltIcon/>
             </p>
         </div>
-        
     </Container>
     </Stack>
   </div>

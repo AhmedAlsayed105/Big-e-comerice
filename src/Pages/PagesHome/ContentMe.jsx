@@ -9,7 +9,7 @@ import emailjs from '@emailjs/browser'
 export default function EmailMe() {
   useEffect(() => {
     Aos.init({
-      duration: 2000,
+      duration: 1200,
     });
   }, []);
   const media = useMediaQuery(("(min-width:0) and (max-width:650px)"))

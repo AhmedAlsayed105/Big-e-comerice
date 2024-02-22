@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 export default function InputSearch() {
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration : 1200
     });
   }, []);
 

@@ -13,10 +13,14 @@ const cartSlice = createSlice({
                 }else {
                     state.push({... actionPayload.payload,qty : 1})
                 }
-        }
+        },
+        delateProduct : (state,actionPayload)=>{
+            return state.filter(product => product.id !== actionPayload.payload.id )
+        },
+    
     }
 })
 
-export const {addProductToCart} = cartSlice.actions
+export const {addProductToCart,delateProduct} = cartSlice.actions
 
 export default cartSlice.reducer

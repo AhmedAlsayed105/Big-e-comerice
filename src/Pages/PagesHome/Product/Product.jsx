@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { Box,IconButton, Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 import AOS from "aos";
@@ -11,13 +10,11 @@ import ShopIngCard from "../../../ShopCard/ShopIngCard";
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useDispatch,  } from "react-redux";
 import { addProductToCart } from "../../../Redux/CartSlice";
+import swal from 'sweetalert';
 
-export default function Product(productApi) { //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-  // const cart = useSelector(state => state.cart)
-  // console.log(cart);
+export default function Product(productApi) {
   const dispatch  = useDispatch()  
-  // console.log(productApi.data);
-  
+  const [checkProductToCard,setCheckProductToCard] =useState(0)
   const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     AOS.init({
@@ -25,11 +22,24 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
     });
   }, []);
 
-  const checkRedux = ()=>{
-    console.log("true");
+  const HandelAddToCart = ()=>{
     dispatch(addProductToCart(productApi.data))
+    setCheckProductToCard(prev => prev + 1)
+    if(checkProductToCard >= 1) {
+      swal({
+        text: "The product already exists😇",
+        buttons: false,
+        timer: 1000,
+      });
+    }else{
+      swal({
+        text: "The product has been added successfully❤️",
+        icon: "success",
+        buttons: false,
+        timer: 1500,
+      });
+    }
   }
-
 
 
 
@@ -83,16 +93,13 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
           <p className="text-[15px]  text-[#70798B]   ">
             Game Console Control ...
           </p>
-  
-  <div data-aos="top" className= {`cursor-pointer transition duration-700  ease-in-out opacity-0 fixed ${isHovered ? " opacity-[1] relative " : ""}`}>
-            <Box
-            >
-              <button  className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4 flex items-center justify-around " size="large" onClick={checkRedux}>Add To Cart
+  <div data-aos="top"  data-aos-duration="250" className= {`cursor-pointer  opacity-0  ${isHovered ? "opacity-[1] relative" : ""}`}>
+            <Box>
+              <button  className="bg-[#2631C5] w-full text-white min-h-[50px] rounded-3xl my-4 flex items-center justify-around " size="large" onClick={HandelAddToCart}>Add To Cart
               <ShoppingBagOutlinedIcon/>
               </button>
             </Box>
       </div>
-      
         </div>
           {/* Start icon sale! */}
         {
@@ -105,13 +112,12 @@ export default function Product(productApi) { //{id,name,Brand,Category,ImageOne
         }
         {/* End icon sale! */}
       </Box>
-      
 </div>
   );
-  
 }
+
 // [data-aos] {
 //     overflow:"auto"
 //   }
 // data-aos-delay="200" // تأخير الأنميشن للخلفية
-          // data-aos-duration="500" // مدة الأنميشن
+// data-aos-duration="500" // مدة الأنميشن

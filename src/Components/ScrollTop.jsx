@@ -9,7 +9,7 @@ export default function ScrollTop() {
   return (
     // zoom خاصيه لجعل الزرار يختفي و useScrollTrigger بتقلو اظهر بعد قدين
     <Zoom in={useScrollTrigger({threshold: 100})} >
-      <Box sx={{position:"fixed",bottom:25,right:10}}>
+      <Box sx={{position:"fixed",bottom:25,right:10,zIndex:1000}}>
         <Fab onClick={toTop} size="small"  color="secondary" aria-label="add" >
             <KeyboardArrowUp fontSize="medium" /> 
         </Fab>

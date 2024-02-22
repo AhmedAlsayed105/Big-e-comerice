@@ -10,7 +10,7 @@ import { Stack } from "@mui/material";
 export default function ContentIcon() {
     useEffect(() => {
         Aos.init({
-          duration: 2000,
+          duration: 1200,
         });
       }, []);
   return (

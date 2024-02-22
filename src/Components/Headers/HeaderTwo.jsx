@@ -1,12 +1,13 @@
 import Logo from "../../Image/Logo.png";
 import { Box, IconButton, Badge, Stack } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import LinksSmallScreen from "./LinksSmallScreen";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchPage from './SearchPage'
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 export default function HeaderTwo() {
   const cart = useSelector(state => state.cart)
   
@@ -72,7 +73,7 @@ export default function HeaderTwo() {
               (
                 <IconButton aria-label="cart">
                 <Badge badgeContent={cart.length} color="primary">
-                  <ShoppingCartIcon />
+                  <Link to={"pageCart"}><ShoppingCartIcon/></Link>
                 </Badge>
               </IconButton>
               )

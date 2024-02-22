@@ -13,7 +13,7 @@ export default function SecondComponentsHome({ Image, bgColorElement,positionP, 
     // data-aos="fade-right"
     useEffect(() => {
         AOS.init({
-          duration : 2000
+            duration: 1200,
         });
       }, []);
     

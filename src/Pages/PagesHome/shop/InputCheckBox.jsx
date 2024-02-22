@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 export default function InputCheckBox({DataInput}) {
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration : 1200
     });
   }, []);
 const HandelSubmit =()=>{

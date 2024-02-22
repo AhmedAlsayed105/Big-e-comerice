@@ -25,12 +25,21 @@ import EmailMe from "./ContentMe";
 import FooterTwo from "./Footer/FooterTwo";
 import { DataPostsApi } from "../../Data/DataPosts";
 import { DataProductApi } from "../../Data/DataProduct";
+import { useEffect } from "react";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+  }, []);
 
   const dataSlice = DataPostsApi.slice(0,4)
   const DATAPOSTS = dataSlice.map(({title,description,image},index)=>(
-      <Grid key={index} item margin={" auto "} xs={11}  md={6} lg={3}>
+      <Grid  key={index} item margin={" auto "} xs={11}  md={6} lg={3}>
     <LatestPosts 
     textH2={title}
     textP={description}
@@ -39,16 +48,19 @@ export default function Home() {
     ))
   // DataProduct
   const dataProductSlice = DataProductApi.slice(0,8)
-  const dataProductApi = dataProductSlice.map((productApi)=>( //{id,name,Brand,Category,ImageOne,ImageTwo,description,priceNews,priceOld,sales}
-        <Grid key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
-        <Product 
-      data={productApi}
+  const dataProductApi = dataProductSlice.map((productApi)=>( 
+        <Grid
+        data-aos="fade-right"
+          key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
+        <Product  
+          data={productApi}
       />
     </Grid>
     ))
   const dataProductSliceTwo = DataProductApi.slice(4,8)
   const dataProductApiTwo = dataProductSliceTwo.map((productApi)=>( 
-        <Grid key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
+        <Grid                 data-aos="fade-right"
+        key={productApi.id} item xs={12} sm={6} md={4} lg={3}>
         <Product 
           data={productApi}
         />

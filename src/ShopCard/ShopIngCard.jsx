@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
-import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { IconButton, Box, Stack, Typography } from '@mui/material';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from "@mui/icons-material/Close";
 import Drawer from "@mui/material/Drawer";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -14,33 +10,53 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/swiper.css';
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
+import { useDispatch } from 'react-redux';
+import swal from 'sweetalert';
+import { addProductToCart } from '../Redux/CartSlice';
 
 
 // eslint-disable-next-line react/prop-types
 export default function ShopIngCard({ClickIconOnOpen,data}) {
-  const [count, setCount] = useState(1);
+  const dispatch = useDispatch()
+  const [checkProductToCard,setCheckProductToCard] =useState(0)
   const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-
-
-  const media = useMediaQuery('(max-width: 780px)')
-
-
-
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+      ) {
+        return;
+      }
+      
+      setState({ ...state, [anchor]: open });
+    };
+    const media = useMediaQuery('(max-width: 780px)')
 
-    setState({ ...state, [anchor]: open });
-  };
+  const HandelAddToCart = ()=>{
+    dispatch(addProductToCart(data.data))
+    setCheckProductToCard(prev => prev + 1)
+    if(checkProductToCard >= 1) {
+      swal({
+        // title: "Good job!",
+        text: "The product already exists😇",
+        buttons: false,
+        timer: 1000,
+      });
+    }else{
+      swal({
+        // title: "Good job!",
+        text: "The product has been added successfully❤️",
+        icon: "success",
+        buttons: false,
+        timer: 1500,
+      });
+    }
+  }
 
 
   return (
@@ -95,7 +111,6 @@ export default function ShopIngCard({ClickIconOnOpen,data}) {
             >
               {/* Start Her  */}
               <Stack justifyContent={'center'} flexDirection={`${media ? "column" : "row"}`}>
-
                 <Box className="">
                   {/* slider */}
                   <Swiper
@@ -139,30 +154,7 @@ export default function ShopIngCard({ClickIconOnOpen,data}) {
                   </Typography>
                 <Box
                 >
-                  <div className='my-2  flex flex-row gap-5'>
-                    <ButtonGroup sx={{borderRadius:"999px"}} className='bg-[#E7E7E7] p-3 flex flex-row gap-2 items-center'>
-                      <Button
-                        aria-label="reduce"
-                        onClick={() => {
-                          setCount(Math.max(count - 1, 0));
-                        }}
-                        variant="black"
-                      >
-                        <RemoveIcon  fontSize="small" />
-                      </Button>
-                      <p className='text-[20px] '>{count}</p>
-                      <Button
-                        variant="black"
-                        aria-label="increase"
-                        onClick={() => {
-                          setCount(count + 1);
-                        }}
-                      >
-                        <AddIcon fontSize="small" />
-                      </Button>
-                    </ButtonGroup>
-                    <button className='bg-[#1723BD] hover:bg-[#3c47df] w-[150px]  p-6 text-white rounded-full'>Add To Cart</button>
-                  </div>
+                    <button className='bg-[#1723BD] hover:bg-[#3c47df] w-[150px]  p-6 text-white rounded-full' onClick={HandelAddToCart} >Add To Cart</button>
                   </Box>
                 </Box>
               </Stack>
