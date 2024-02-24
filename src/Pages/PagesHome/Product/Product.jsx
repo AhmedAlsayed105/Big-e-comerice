@@ -44,11 +44,14 @@ export default function Product(productApi) {
 
 
   return (
-<div className=" h-[490px] ">
+<div className=" h-[490px] "
+
+
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)} 
+>
       <Box
         className={`${isHovered ? "h-[490px]" :"h-[420px] "} transition duration-700 ease-in-out px-5 text-white rounded-3xl border-2 border-[#70798b4d] hover:shadow-2xl hover:border-[#ddd] relative  `}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)} 
       >                                                                                                       
         <div        //{`transition duration-700 ease-in-out opacity-0 ${isHovered ? "mb-[10px] opacity-[1]" : ""}`}
           className={`flex justify-center items-center relative  transition duration-300 ease-in-out `}
@@ -62,7 +65,7 @@ export default function Product(productApi) {
           <ShopIngCard data={productApi}  ClickIconOnOpen={<VisibilityOutlinedIcon />}/>
           </IconButton>
         </Stack>
-        <div className="h-[299px] max-w-[300px] max-h-[300px] cursor-pointer transition duration-700 ease-in-out">
+        <div className="h-[299px] max-w-[285px] max-h-[285px] cursor-pointer transition duration-700 ease-in-out">
         {
           !isHovered ? <img className=" w-full" src={productApi.data?.ImageOne} /> : <img className=""  src={productApi.data?.ImageTwo} />
         }

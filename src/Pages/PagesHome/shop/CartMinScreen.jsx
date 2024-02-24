@@ -1,4 +1,7 @@
-import { Container } from "@mui/material";
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,11 +10,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { addProductToCart, delateProduct } from "../../../Redux/CartSlice";
+import { addProductToCart, delateProduct } from '../../../Redux/CartSlice';
+import CloseIcon from "@mui/icons-material/Close";
+import { IconButton } from '@mui/material';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -33,12 +36,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-
-
-
-
-export default function CarCartPage() {
-
+export default function CartMinScreen() {
+  
   const cartData = useSelector(state => state.cart)
   const disPatch = useDispatch()
 
@@ -46,38 +45,74 @@ export default function CarCartPage() {
       cur + acc.priceNews * acc.qty
   ),0)
 
-  useEffect(() => {
-    AOS.init({
-        duration: 1200,
-    });
-  }, []);
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
 
   return (
-    <Container>
-    
-    <div
-    data-aos="right" 
-    style={{
-      overflow: "inherit", // إضافة خاصية overflow
-  }}
-    >
-          <h1 className="font-semibold mb-2">Total Price: <span className="text-red-600">{totalPrice}$</span> </h1>
+    <div>
+          <Button onClick={toggleDrawer("left", true)}>
+          <ShoppingCartIcon/>
+
+          </Button>
+          <Drawer
+            anchor={"left"}
+            open={state["left"]}
+            onClose={toggleDrawer("left", false)}
+            sx={{
+            ".css-4t3x6l-MuiPaper-root-MuiDrawer-paper":{
+              Width:"345px",
+              minWidth:"345px",
+            }
+            }}
+          >
           {/*  */}
-          <TableContainer component={Paper}
-              data-aos="right" 
-              >
+          <div>
+<div className='flex items-center justify-between'>
+  
+            <h1 className="font-semibold mb-2">Total Price: <span className="text-red-600">{totalPrice}$</span> </h1>
+            <IconButton
+        sx={{
+          ":hover": { rotate: "180deg", transition: "0.3s ", color: "red" },
+        }}
+        onClick={toggleDrawer("left", false)}
+      >
+        <CloseIcon />
+      </IconButton>
+      
+</div>
+          {/*  */}
+          <TableContainer component={Paper}>
       <Table sx={{ minWidth: 0 }} aria-label="customized table">
         <TableHead>
           {
             cartData.length === 0 ? "":
             (
-                <TableRow>
+                <TableRow
+                sx={{
+                  ".css-1nslmh4-MuiTableCell-root.MuiTableCell-head":{
+                    width:"3px",
+                    padding:" 15px 5px",
+                  }
+                }}
+                >
                 <StyledTableCell >Id</StyledTableCell>
-                <StyledTableCell>Title</StyledTableCell>
-                <StyledTableCell align="center">Img</StyledTableCell>
-                <StyledTableCell align="right">Price</StyledTableCell>
-                <StyledTableCell align="center">Quantity</StyledTableCell>
-                <StyledTableCell align="right">Action</StyledTableCell>
+                <StyledTableCell >Title</StyledTableCell>
+                <StyledTableCell >Img</StyledTableCell>
+                <StyledTableCell >Price</StyledTableCell>
+                <StyledTableCell >Quantity</StyledTableCell>
+                <StyledTableCell >Action</StyledTableCell>
               </TableRow> 
             )
           }
@@ -91,15 +126,15 @@ export default function CarCartPage() {
               <StyledTableCell>
                 {index + 1}
               </StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {product.name}
+              <StyledTableCell >
+                {product.name.slice(0,7)+"..."}
               </StyledTableCell>
-              <StyledTableCell align="left"className="w-[140px] h-[140px] ">
+              <StyledTableCell className="w-[120px] h-[120px] ">
                 <img className="w-full h-full" src={product.ImageOne} alt="photo" />
               </StyledTableCell>
-              <StyledTableCell align="right">{product.priceNews}$</StyledTableCell>
-              <StyledTableCell align="center">{product.qty}</StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell >{product.priceNews}$</StyledTableCell>
+              <StyledTableCell >{product.qty}</StyledTableCell>
+              <StyledTableCell >
                 <button
                   onClick={()=>
                       disPatch(addProductToCart(product))
@@ -117,12 +152,8 @@ export default function CarCartPage() {
       </Table>
     </TableContainer>
     </div>
-    </Container>
-)}
-
-
-
-
-
-
-
+          {/*  */}
+          </Drawer>
+    </div>
+  );
+}
