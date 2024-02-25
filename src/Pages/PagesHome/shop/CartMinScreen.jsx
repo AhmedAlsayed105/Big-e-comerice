@@ -72,8 +72,8 @@ export default function CartMinScreen() {
             onClose={toggleDrawer("left", false)}
             sx={{
             ".css-4t3x6l-MuiPaper-root-MuiDrawer-paper":{
-              Width:"345px",
-              maxWidth:"345px",
+              Width:"315px",
+              maxWidth:"315px",
             }
             }}
           >
