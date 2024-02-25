@@ -78,7 +78,7 @@ export default function Home() {
               Imag={IphoneImage}
               Direction={"flex-col"}
               bgColorElement={"black"}
-              positionImg={"relative bottom-[45px]  sm:bottom-[0px] lg:bottom-[25px]"}
+              positionImg={"relative bottom-[0px]  sm:bottom-[0px] lg:bottom-[25px]"}
               positionP={"mt-16"}
               bgButton={"bg-cyan-500 "}
               textH2={"todoIPhone 12 Pro It’s A Leap Year"}

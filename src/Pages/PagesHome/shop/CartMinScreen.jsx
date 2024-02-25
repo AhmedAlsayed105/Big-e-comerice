@@ -73,7 +73,7 @@ export default function CartMinScreen() {
             sx={{
             ".css-4t3x6l-MuiPaper-root-MuiDrawer-paper":{
               Width:"345px",
-              minWidth:"345px",
+              maxWidth:"345px",
             }
             }}
           >
